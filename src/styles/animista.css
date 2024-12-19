@@ -1,33 +1,47 @@
 .flex-vertical {
-    display: flex;
-    flex-direction: column; /* Susunan vertikal */
-    align-items: center;    /* Pusatkan secara horizontal */
-    justify-content: center; /* Pusatkan secara vertikal */
-    height: 100vh;          /* Isi tinggi layar penuh */
-    text-align: center;     /* Pastikan teks di tengah */
+  display: flex;
+  flex-direction: column; /* Susunan vertikal */
+  align-items: center; /* Pusatkan secara horizontal */
+  justify-content: center; /* Pusatkan secara vertikal */
+  height: 100vh; /* Isi tinggi layar penuh */
+  text-align: center; /* Pastikan teks di tengah */
+}
+
+.text-animation {
+  animation: slide-in-out 4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-in-out {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
   }
-  
-  .text-animation {
-    animation: slide-in-out 4s cubic-bezier(0.250, 0.460, 0.450, 0.940);
-    animation-fill-mode: forwards;
+  30% {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
-  @keyframes slide-in-out {
-    0% {
-      transform: translateX(100%);
-      opacity: 0;
-    }
-    30% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    70% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
+  70% {
+    transform: translateX(0);
+    opacity: 1;
   }
-  
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+h1,
+h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+}

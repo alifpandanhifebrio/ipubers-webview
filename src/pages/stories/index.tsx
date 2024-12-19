@@ -5,7 +5,7 @@ const stories = [
     id: 1,
     html: (
       <div className="text-center py-20 flex-vertical">
-        <h1 className="text-2xl font-bold mb-2">Kontribusi untuk Petani</h1>
+        <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: '700' }} className="text-2xl font-bold mb-2">Kontribusi untuk Petani</h1>
         <h2>
           Terima kasih telah menjadi bagian dari perjalanan kami. Dengan
           dukungan Anda, petani Indonesia bisa melangkah lebih jauh dan lebih
@@ -19,7 +19,7 @@ const stories = [
     id: 2,
     html: (
       <div className="text-center py-20  flex-vertical">
-        <h1 className="text-2xl font-bold mb-2">Statistik Kontribusi</h1>
+        <h1 style={{ fontFamily: 'Montserrat, sans-serif', fontWeight: '700' }} className="text-2xl font-bold mb-2">Statistik Kontribusi</h1>
         <h2>
           Angka-angka ini bukan sekadar data, tapi bukti nyata dari dampak luar
           biasa Anda. Tahun ini, Anda telah menjangkau [jumlah petani] petani
