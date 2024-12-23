@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import StoryProgressBar from "./StoryProgressBar";
+import React, { useEffect, useState } from "react";
 import StoryDots from "./StoryDots";
+import StoryProgressBar from "./StoryProgressBar";
 
 interface Story {
   html: React.ReactNode;
@@ -17,8 +17,6 @@ export default function StoryContainer({ stories }: StoryContainerProps) {
 
   useEffect(() => {
     setIsAnimating(true);
-    // const timeout = setTimeout(() => setIsAnimating(false), stories[currentStoryIndex].duration);
-    // return () => clearTimeout(timeout);
   }, [currentStoryIndex, stories]);
 
   const goToNextStory = () => {
@@ -55,27 +53,32 @@ export default function StoryContainer({ stories }: StoryContainerProps) {
             currentStoryIndex === index ? "block" : "hidden"
           }`}
         >
-          <div className={isAnimating ? "text-animation" : ""}>{story.html}</div>
+          <div className={isAnimating ? "text-animation" : ""}>
+            {story.html}
+          </div>
         </div>
       ))}
 
-      {/* Tombol Panah */}
-      {/* {currentStoryIndex > 0 && (
-        <button
-          onClick={goToPreviousStory}
-          className="fixed left-1 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white rounded p-2 z-10"
-        >
-          ←
-        </button>
-      )}
-      {currentStoryIndex < stories.length - 1 && (
-        <button
-          onClick={goToNextStory}
-          className="fixed right-1 top-1/2 transform -translate-y-1/2 bg-gray-900 text-white rounded p-2 z-5"
-        >
-          →
-        </button>
-      )} */}
+      {/* Tombol Area untuk Navigasi */}
+      <div className="absolute inset-0 flex">
+        {/* Area Klik untuk Story Sebelumnya */}
+        {currentStoryIndex > 0 && (
+          <button
+            onClick={goToPreviousStory}
+            className="w-1/2 h-full bg-transparent z-10 focus:outline-none"
+            aria-label="Previous Story"
+          />
+        )}
+
+        {/* Area Klik untuk Story Selanjutnya */}
+        {currentStoryIndex < stories.length - 1 && (
+          <button
+            onClick={goToNextStory}
+            className="w-1/2 h-full bg-transparent z-10 ml-auto focus:outline-none"
+            aria-label="Next Story"
+          />
+        )}
+      </div>
 
       {/* Dots */}
       <div className="fixed bottom-4 w-full">
