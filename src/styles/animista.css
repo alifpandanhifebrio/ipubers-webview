@@ -1,3 +1,4 @@
+/* Kelas utama untuk elemen vertikal */
 .flex-vertical {
   display: flex;
   flex-direction: column; /* Susunan vertikal */
@@ -7,12 +8,24 @@
   text-align: center; /* Pastikan teks di tengah */
 }
 
-.text-animation {
-  animation: slide-in-out 11s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  animation-fill-mode: forwards;
+/* Animasi gabungan untuk h2 */
+.combined-animation {
+  animation: scale-up-center 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards, 
+             pause-display 3s linear forwards,
+             slide-out-left 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 2s, 3.5s, 6.5s; /* Delay animasi muncul, tampil diam, dan keluar */
+  opacity: 0; /* Pastikan teks tidak terlihat sebelum animasi */
 }
 
-@keyframes slide-in-out {
+/* Animasi untuk teks pada h1 */
+.text-animation {
+  animation: fade-in-slide-out 8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; /* Mulai animasi setelah delay */
+  opacity: 0; /* Pastikan teks tidak terlihat sebelum animasi */
+  
+}
+
+/* Animasi fade-in-slide-out untuk h1 */
+@keyframes fade-in-slide-out {
   0% {
     transform: translateX(100%);
     opacity: 0;
@@ -31,16 +44,55 @@
   }
 }
 
+/* Animasi masuk (membesar dari tengah) */
+@keyframes scale-up-center {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animasi untuk menampilkan teks diam sejenak */
+@keyframes pause-display {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Animasi keluar ke kiri */
+@keyframes slide-out-left {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+}
+
+/* Gaya umum untuk body */
 body {
   font-family: "Montserrat", sans-serif;
 }
 
+/* Gaya untuk heading */
 h1,
 h2 {
   font-family: "Montserrat", sans-serif;
   font-weight: 700;
 }
 
+/* Gaya untuk paragraf */
 p {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;

@@ -53,9 +53,7 @@ export default function StoryContainer({ stories }: StoryContainerProps) {
             currentStoryIndex === index ? "block" : "hidden"
           }`}
         >
-          <div className={isAnimating ? "text-animation" : ""}>
-            {story.html}
-          </div>
+          <div className={isAnimating ? "" : ""}>{story.html}</div>
         </div>
       ))}
 
